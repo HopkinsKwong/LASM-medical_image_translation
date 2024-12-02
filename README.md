@@ -100,4 +100,4 @@ self.loss_D += self.loss_D_lasm
 If you find this repo useful for your research, please consider citing the paper. Although the paper has not been published yet, we kindly ask that you revisit this project code when you publish your work to check for any updates regarding the paper.
 
 ## Acknowledgment :sparkles:
-This code is based on implementations by ResViT ([https://github.com/icon-lab/ResViT](https://github.com/icon-lab/ResViT))
+This code is based on implementations by ResViT ([https://github.com/icon-lab/ResViT](https://github.com/icon-lab/ResViT)).
