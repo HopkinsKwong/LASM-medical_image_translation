@@ -5,6 +5,18 @@ The code for this project is the complete source code for the paper "**Localized
 ## Data Preparation
 We utilize the publicly available [BraTS 2021](https://www.kaggle.com/datasets/dschettler8845/brats-2021-task1) and [SynthRAD2023](https://zenodo.org/records/7260705) datasets for our experiments. 
 
+## Model training and inference
+The complete source code is located in the `src` folder. To use this project, follow the steps below:
+```python
+# Example
+
+## Train
+python train.py --dataroot ./dataset/T2_FLAIR_830/T2_FLAIR --name T2_FLAIR_830_Mixup_BtoA --gpu_ids 0 --model mixup_resvit_one --which_model_netG res_cnn --which_direction BtoA --lambda_A 100 --dataset_mode aligned --norm batch --pool_size 0 --output_nc 1 --input_nc 1 --loadSize 256 --fineSize 256 --niter 50 --niter_decay 50 --save_epoch_freq 100 --checkpoints_dir checkpoints/mixup_resvit --display_id 0 --lr 0.0002 --batchSize 16 --nThreads 50
+
+## Inference
+python test.py --dataroot ./dataset/T2_FLAIR_830/T2_FLAIR  --name T2_FLAIR_830_Mixup_AtoB --gpu_ids 0 --model mixup_resvit_one --which_model_netG res_cnn --which_direction AtoB --dataset_mode aligned --norm batch --phase test --output_nc 1 --input_nc 1 --how_many 30000 --serial_batches --fineSize 256 --loadSize 256 --results_dir results/mixup_resvit --checkpoints_dir checkpoints/mixup_resvit --which_epoch latest
+```
+
 ## :relaxed: Easy to Use！！！ 
 * The code for "Localized Adaptive Style Mixing (LASM)" is mainly found in `models/resvit_LASM.py`. The code is as follows:
 ```python
