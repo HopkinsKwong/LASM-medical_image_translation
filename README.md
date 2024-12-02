@@ -8,6 +8,7 @@ We utilize the publicly available [BraTS 2021](https://www.kaggle.com/datasets/d
 ## :relaxed: Easy to Use！！！ 
 * The code for "Localized Adaptive Style Mixing (LASM)" is mainly found in `models/resvit_LASM.py`. The code is as follows:
 ```python
+import torch
 
 def compute_moments(x):
     mean = x.mean(dim=(2, 3), keepdim=True)
